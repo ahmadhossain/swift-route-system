@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37203.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftRoute Courier - OOP Assesment", "SwiftRoute Courier - OOP Assesment.csproj", "{D099CA5C-C60E-4EAB-B2B4-B87084175E78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D099CA5C-C60E-4EAB-B2B4-B87084175E78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D099CA5C-C60E-4EAB-B2B4-B87084175E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D099CA5C-C60E-4EAB-B2B4-B87084175E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D099CA5C-C60E-4EAB-B2B4-B87084175E78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2C6198A-ABA8-4C7D-A921-0D1DBABA0AB4}
+	EndGlobalSection
+EndGlobal
