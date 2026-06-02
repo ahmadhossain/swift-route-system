@@ -7,7 +7,5 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
         public abstract double MaxWeightLimit();
         public abstract double MinWeightLimit();
         public abstract bool IsTierEligible(ServiceTier serviceTier);
-
-        //public abstract ServiceTier EligibleTier() => ServiceTier.SameDay || ServiceTier.NextDay; 
     }
 }

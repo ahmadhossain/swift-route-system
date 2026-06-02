@@ -9,9 +9,18 @@ Console.WriteLine("╚═══════════════════�
 var individualCustomer = new IndividualCustomer { Name = "John" };
 var businessCustomer = new BusinessCustomer { Name = "Nick" };
 
+var sender = new PersonInfo("John","1203048854","Dhaka");
+var reciever = new PersonInfo("Alice","1203048854","Chittagong");
+
 var documentParcel = new DocumentParcel(0.5);
+documentParcel.Sender = sender;
+documentParcel.Recipient = reciever;
 var standardParcel = new StandandParcel(20);
+standardParcel.Sender = sender;
+standardParcel.Recipient = reciever;
 var fragileParcel = new FragileParcel(1);
+fragileParcel.Sender = sender;
+fragileParcel.Recipient = reciever;
 
 var bike = new BikeCourier();
 
