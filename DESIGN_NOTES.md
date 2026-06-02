@@ -121,4 +121,4 @@ Requirements:
 
 ### Justification
 
-The design follows the Open/Closed Principle. New parcel behavior is added through a new subclass while existing workflow classes remain unchanged.
+Ifragile interface added for the surcharge. Adding that class will not break existing code.
