@@ -1,9 +1,8 @@
 ﻿namespace SwiftRoute_Courier___OOP_Assesment.Interfaces
 {
-    interface ICashOnDeliveryable
+    interface ICashOnDelivery
     {
         decimal CODAmount { get; set; }
-
-        decimal CODServiceRate() => 0.01m;
+        decimal GetCODServiceRate() => 0.01m;
     }
 }

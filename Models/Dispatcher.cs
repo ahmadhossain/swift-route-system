@@ -77,6 +77,11 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
                     x.Status == ParcelStatus.Delivered)
                 .Sum(x => x.CalculateTotalPrice());
 
+            if(customer is IDiscount)
+            {
+                total -= total * customer.GetDiscountRate();
+            }
+
             return (delivered, total);
         }
 

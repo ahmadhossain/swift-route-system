@@ -1,7 +1,7 @@
 ﻿namespace SwiftRoute_Courier___OOP_Assesment.Interfaces
 {
-    interface IFragileable
+    interface IDiscount
     {
-        decimal FragileSurCharge() => 50.0m;
+        decimal GetDiscountRate();
     }
 }

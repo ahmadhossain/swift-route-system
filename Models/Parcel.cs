@@ -1,4 +1,6 @@
-﻿namespace SwiftRoute_Courier___OOP_Assesment.Models
+﻿using SwiftRoute_Courier___OOP_Assesment.Interfaces;
+
+namespace SwiftRoute_Courier___OOP_Assesment.Models
 {
     abstract class Parcel
     {

@@ -2,7 +2,7 @@
 
 namespace SwiftRoute_Courier___OOP_Assesment.Models
 {
-    class StandandParcel : Parcel, IInsuranceable, ICashOnDeliveryable 
+    class StandandParcel : Parcel, IInsurance, ICashOnDelivery 
     {
         private double _weightKg;
         private double _maxWeightLimit = 30;

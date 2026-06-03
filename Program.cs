@@ -36,6 +36,7 @@ var shipment4 = dispatcher.BookShipment(standardParcel, individualCustomer, Serv
 standardParcel.DeclaredValue = 1000;
 
 shipment2.EnableInsurance();
+
 shipment4.EnableCOD(1000);
 
 PrintAllPrices(shipment.GetAllPrices());

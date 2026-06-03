@@ -1,8 +1,8 @@
 ﻿namespace SwiftRoute_Courier___OOP_Assesment.Interfaces
 {
-    interface IInsuranceable
+    interface IInsurance
     {
-        decimal InsuranceRate() => 0.02m;
+        decimal GetInsuranceRate() => 0.02m;
         bool IsInsuranceMandatory();
     }
 }

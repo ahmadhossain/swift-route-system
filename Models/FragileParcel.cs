@@ -2,7 +2,7 @@
 
 namespace SwiftRoute_Courier___OOP_Assesment.Models
 {
-    class FragileParcel : Parcel, IFragileable, IInsuranceable, ICashOnDeliveryable
+    class FragileParcel : Parcel, ISurCharge, IInsurance, ICashOnDelivery
     {
         private double _weightKg;
         private double _maxWeightLimit = 15;
@@ -22,6 +22,8 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
         }
 
         public bool IsInsuranceMandatory() => true;
+
+        public decimal GetSurCharge() => 50.0m;
 
         public FragileParcel(double weight) : base("Fragile")
         {

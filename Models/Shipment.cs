@@ -20,9 +20,9 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
             Customer = customer;
             Tier = tier;
 
-            if (Parcel is IInsuranceable)
+            if (Parcel is IInsurance)
             {
-                var insurance = Parcel as IInsuranceable;
+                var insurance = Parcel as IInsurance;
                 if (insurance.IsInsuranceMandatory())
                 {
                     EnableInsurance();
@@ -47,7 +47,7 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
 
         public void EnableInsurance()
         {
-            if (!(Parcel is IInsuranceable))
+            if (!(Parcel is IInsurance))
             {
                 throw new Exception("Insurance is not available for this parcel type!");
             }
@@ -67,12 +67,12 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
                 throw new Exception("Cash on Devilery is not available to business customer!");
             }
 
-            if (!(Parcel is ICashOnDeliveryable))
+            if (!(Parcel is ICashOnDelivery))
             {
                 throw new Exception("Cash on Devilery is not available to this Parcel Type!");
             }
 
-            var parcel = Parcel as ICashOnDeliveryable;
+            var parcel = Parcel as ICashOnDelivery;
 
             parcel.CODAmount = amount;
             IsCODEnabled = true;
@@ -121,11 +121,11 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
 
         private decimal GetFragileCharge()
         {
-            if (Parcel is IFragileable)
+            if (Parcel is ISurCharge)
             {
-                var fragile = Parcel as IFragileable;
+                var fragile = Parcel as ISurCharge;
 
-                return fragile.FragileSurCharge();
+                return fragile.GetSurCharge();
             }
 
             return 0;
@@ -135,8 +135,8 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
         {
             if (IsInsuranceTaken)
             {
-                var insurance = Parcel as IInsuranceable;
-                return insurance.InsuranceRate() * Parcel.DeclaredValue;
+                var insurance = Parcel as IInsurance;
+                return insurance.GetInsuranceRate() * Parcel.DeclaredValue;
             }
 
             return 0;
@@ -144,15 +144,22 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
 
         private decimal GetDiscount(decimal total)
         {
-            return Customer.DiscountRate() * total;
+            if (!(Customer is IDiscount))
+            {
+                return 0.0m;
+            }
+
+            var discount = Customer as IDiscount;
+
+            return discount.GetDiscountRate() * total;
         }
 
         private decimal GetCODCharge()
         {
             if (IsCODEnabled)
             {
-                var cashOnDeliveryable = Parcel as ICashOnDeliveryable;
-                return cashOnDeliveryable.CODServiceRate() * cashOnDeliveryable.CODAmount;
+                var cashOnDeliveryable = Parcel as ICashOnDelivery;
+                return cashOnDeliveryable.GetCODServiceRate() * cashOnDeliveryable.CODAmount;
             }
 
             return 0;
