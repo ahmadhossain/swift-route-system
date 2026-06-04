@@ -10,7 +10,6 @@ namespace SwiftRoute_Courier___OOP_Assesment.Interfaces
         void AdvanceStatus(Shipment shipment, ParcelStatus status);
         List<Shipment> GetInTransitShipments();
         (List<Shipment>, decimal Revenue) GetDeliveredTodayReport();
-        (List<Shipment>, decimal) GenerateBusinessInvoice(BusinessCustomer customer);
-        List<Shipment> GetAllShipments();
+        (List<Shipment>, decimal, decimal) GenerateBusinessInvoice(BusinessCustomer customer);
     }
 }

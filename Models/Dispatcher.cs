@@ -62,7 +62,7 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
             return (delivered, revenue);
         }
 
-        public (List<Shipment>, decimal) GenerateBusinessInvoice(
+        public (List<Shipment>, decimal, decimal) GenerateBusinessInvoice(
             BusinessCustomer customer)
         {
             var delivered = _shipments
@@ -77,12 +77,14 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
                     x.Status == ParcelStatus.Delivered)
                 .Sum(x => x.CalculateTotalPrice());
 
+            var discount = 0.0m;
+
             if(customer is IDiscount)
             {
-                total -= total * customer.GetDiscountRate();
+                discount = total * customer.GetDiscountRate();
             }
 
-            return (delivered, total);
+            return (delivered, discount, total);
         }
 
         public List<Shipment> GetAllShipments()

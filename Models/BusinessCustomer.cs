@@ -7,6 +7,6 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
         public string CompanyName { get; set; }
         public decimal MonthlyCreditAmount { get; set; }
 
-        public decimal GetDiscountRate() => 0.10m; 
+        public decimal GetDiscountRate() => 0.1m; 
     }
 }

@@ -88,8 +88,8 @@ shipment6.AdvanceStatus(ParcelStatus.InTransit);
 shipment6.AdvanceStatus(ParcelStatus.OutForDelivery);
 shipment6.AdvanceStatus(ParcelStatus.Delivered);
 
-var (shipments, total) = dispatcher.GenerateBusinessInvoice(businessCustomer);
-PrintBusinessInvoice(shipments, total);
+var (shipments, discount, total) = dispatcher.GenerateBusinessInvoice(businessCustomer);
+PrintBusinessInvoice(shipments, discount, total);
 
 shipment3.AdvanceStatus(ParcelStatus.PickedUp);
 shipment3.AdvanceStatus(ParcelStatus.InTransit);
@@ -125,7 +125,7 @@ void PrintShipments(List<Shipment> shipments, string label = "")
     }
 }
 
-void PrintBusinessInvoice(List<Shipment> shipments, decimal total)
+void PrintBusinessInvoice(List<Shipment> shipments, decimal discount, decimal total)
 {
     Console.WriteLine("------------------------------");
     Console.WriteLine("       MONTH-END INVOICE      ");
@@ -139,10 +139,13 @@ void PrintBusinessInvoice(List<Shipment> shipments, decimal total)
 
     foreach (var shipment in shipments)
     {
-        Console.WriteLine($"Parcel Type: {shipment.Parcel.ParcelType}   Price:  {shipment.CalculateTotalPrice()} \n");
+        Console.WriteLine($"Parcel Type:        {shipment.Parcel.ParcelType} \n" +
+                          $"Price:              {shipment.CalculateTotalPrice()} \n");
     }
+        Console.WriteLine($"Subtotal:           {total}");
+        Console.WriteLine($"Discount:           {discount}");
         Console.WriteLine("------------------------------");
-        Console.WriteLine($"Total:              {total} \n");
+        Console.WriteLine($"Total:              {(total - discount)} \n");
 }
 
 void PrintAllPrices(List<decimal> prices)

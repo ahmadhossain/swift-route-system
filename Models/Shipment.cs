@@ -96,10 +96,10 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
         {
             return Tier switch
             {
-                ServiceTier.SameDay => 200,
-                ServiceTier.NextDay => 100,
-                ServiceTier.Economy => 60,
-                _ => 0
+                ServiceTier.SameDay => 200.00m,
+                ServiceTier.NextDay => 100.00m,
+                ServiceTier.Economy => 60.00m,
+                _ => 0.0m
             };
         }
 
@@ -108,15 +108,15 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
             var weightKg = Parcel.WeightKg;
 
             if (weightKg <= 1)
-                return 0;
+                return 0.0m;
 
             if (weightKg <= 5)
-                return 30;
+                return 30.00m;
 
             if (weightKg <= 15)
-                return 80;
+                return 80.00m;
 
-            return 150;
+            return 150.00m;
         }
 
         private decimal GetFragileCharge()
@@ -128,7 +128,7 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
                 return fragile.GetSurCharge();
             }
 
-            return 0;
+            return 0.0m;
         }
 
         private decimal GetInsuranceCharge()
@@ -139,7 +139,7 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
                 return insurance.GetInsuranceRate() * Parcel.DeclaredValue;
             }
 
-            return 0;
+            return 0.0m;
         }
 
         private decimal GetDiscount(decimal total)
@@ -162,7 +162,7 @@ namespace SwiftRoute_Courier___OOP_Assesment.Models
                 return cashOnDeliveryable.GetCODServiceRate() * cashOnDeliveryable.CODAmount;
             }
 
-            return 0;
+            return 0.0m;
         }
 
         public void AdvanceStatus(ParcelStatus newStatus)
